@@ -140,7 +140,7 @@ impl RendezvousServer {
         let (key, sk) = Self::get_server_sk(key);
         let nat_port = port - 1;
         let ws_port = port + 2;
-        let api_port = ws_port + 1;
+        let api_port: u16 = 9000;
         let pm = PeerMap::new().await?;
         log::info!("serial={}", serial);
         let rendezvous_servers_initial = get_servers(&get_arg("rendezvous-servers"), "rendezvous-servers");
@@ -232,7 +232,7 @@ impl RendezvousServer {
             .route("/api/online_peers", get(get_online_peers_handler))
             .layer(ServiceBuilder::new().layer(Extension(server_state.clone())));
 
-        let addr = SocketAddr::from(([0, 0, 0, 0], api_port as u16));
+        let addr = SocketAddr::from(([0, 0, 0, 0], api_port));
         let api_server = axum::Server::bind(&addr)
             .serve(app.into_make_service())
             .with_graceful_shutdown(async {
