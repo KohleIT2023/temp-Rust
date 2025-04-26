@@ -37,4 +37,4 @@ Dieses Dokument verfolgt die Schritte zur Implementierung eines HTTP-API-Endpunk
     - [x] Axum-Server-Future zum Haupt-`tokio::select!` hinzufügen.
 - [x] **Task 6: Notwendige Imports hinzufügen:** `use` Statements für `axum`, `serde`, etc. in `src/rendezvous_server.rs` ergänzen. (Status: Erledigt)
 - [x] **Task 7: Code bauen:** `cargo build --release` ausführen und Kompilierfehler beheben. (Status: Erledigt)
-- [ ] **Task 8: Taskliste aktualisieren:** Alle erledigten Schritte abhaken. (Status: In Arbeit) 
+- [x] **Task 8: Taskliste aktualisieren:** Alle erledigten Schritte abhaken. (Status: Erledigt) 
