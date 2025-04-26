@@ -352,3 +352,5 @@ You can specify the variables as usual or use an `.env` file.
 | RUST_LOG | all | set debug level (error\|warn\|info\|debug\|trace) |
 | SINGLE_BANDWIDTH | hbbr | max bandwidth for a single connection (in Mb/s) |
 | TOTAL_BANDWIDTH | hbbr | max total bandwidth (in Mb/s) |
+# Rust_Server
+# Rust_Server

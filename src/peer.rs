@@ -61,7 +61,7 @@ pub(crate) type LockPeer = Arc<RwLock<Peer>>;
 
 #[derive(Clone)]
 pub(crate) struct PeerMap {
-    map: Arc<RwLock<HashMap<String, LockPeer>>>,
+    pub(crate) map: Arc<RwLock<HashMap<String, LockPeer>>>,
     pub(crate) db: database::Database,
 }
 
@@ -91,7 +91,7 @@ impl PeerMap {
 
     #[inline]
     pub(crate) async fn update_pk(
-        &mut self,
+        &self,
         id: String,
         peer: LockPeer,
         addr: SocketAddr,
@@ -118,8 +118,8 @@ impl PeerMap {
                     log::error!("db.insert_peer failed: {}", err);
                     return register_pk_response::Result::SERVER_ERROR;
                 }
-                Ok(guid) => {
-                    peer.write().await.guid = guid;
+                Ok(new_guid) => {
+                    peer.write().await.guid = new_guid;
                 }
             }
         } else {
